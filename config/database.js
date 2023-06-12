@@ -1,4 +1,20 @@
+const { MongoClient } = require('mongodb');
 const path = require('path');
+
+async function connectToDatabase() {
+  try {
+    const uri = 'mongodb+srv://juliejpg:ArtWork0!@cluster0.0x3chnj.mongodb.net/?retryWrites=true&w=majority';
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    await client.connect();
+    console.log('Connected to the MongoDB database');
+    return client.db();
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+    throw error;
+  }
+}
+
+let db;
 
 module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
@@ -92,11 +108,16 @@ module.exports = ({ env }) => {
     },
   };
 
+  if (client === 'mongodb') {
+    db = connectToDatabase();
+  }
+
   return {
     connection: {
       client,
       ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
+    getDatabase: () => db, // Expose the database client
   };
 };
