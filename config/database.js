@@ -80,6 +80,16 @@ module.exports = ({ env }) => {
       },
       useNullAsDefault: true,
     },
+    mongodb: {
+      connector: 'mongoose',
+      settings: {
+        client: 'mongo',
+        uri: env('DATABASE_URI'),
+      },
+      options: {
+        ssl: true,
+      },
+    },
   };
 
   return {
