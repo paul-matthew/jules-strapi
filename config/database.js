@@ -20,16 +20,15 @@ module.exports = ({ env }) => {
         //   cert: fs.readFileSync(path.resolve(__dirname, './b534aa53a06e29-cert.pem')),
         //   key: fs.readFileSync(path.resolve(__dirname, './b534aa53a06e29-key.pem')),
         // },
-        // options: {
-        //   dialectOptions: {
-        //     supportBigNumbers: false,
-        //     bigNumberStrings: false,
-        //   },
-        // },
+        options: {
+          dialectOptions: {
+            supportBigNumbers: false,
+            bigNumberStrings: false,
+          },
+          ssl:false
+        },
       },
-      options: {
-        ssl:false
-      },
+
     },
   };
 
