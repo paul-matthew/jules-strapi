@@ -1,34 +1,38 @@
 /*THE FOLLOWING IS FOR THE CLEARDB DATABASE*/
 
+const path = require('path');
+// const fs = require('fs');
+
 module.exports = ({ env }) => {
   const client = 'mysql2';
 
   const connections = {
-    mysql: {
+    default: {
       connector: 'bookshelf',
       settings: {
         client: 'mysql2',
-        host: env('DATABASE_HOST', 'us-cdbr-east-06.cleardb.net'),
-        port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'heroku_0964b3720c902a8'),
-        username: env('DATABASE_USERNAME', 'b534aa53a06e29'),
-        password: env('DATABASE_PASSWORD', '89b797f7'),
-        dialectOptions: {
-          ssl: env.bool('DATABASE_SSL', false),
-        },
+        host: 'us-cdbr-east-06.cleardb.net',
+        port: '3306',
+        database: 'heroku_0964b3720c902a8',
+        username: 'b534aa53a06e29',
+        password: '89b797f7',
+        // dialectOptions: {
+        //   supportBigNumbers: true
+        // },
+        options: {
+          ssl: false
+        }
       },
-      options: {},
     },
   };
 
+  // console.log('Client:', client);
+  // console.log('Connection:', connections[client]);
+
   return {
-    defaultConnection: 'default',
-    connections: {
-      default: {
-        connector: connections[client].connector,
-        settings: connections[client].settings,
-        options: connections[client].options,
-      },
+    connection: {
+      client,
+      ...connections[client],
     },
   };
 };
