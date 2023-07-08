@@ -16,9 +16,6 @@ module.exports = ({ env }) => {
         database: 'heroku_0964b3720c902a8',
         username: 'b534aa53a06e29',
         password: '89b797f7',
-        dialectOptions: {
-          supportBigNumbers: true
-        },
         options: {
           ssl: false
         }
