@@ -16,19 +16,12 @@ module.exports = ({ env }) => {
         database: 'heroku_0964b3720c902a8',
         username: 'b534aa53a06e29',
         password: '89b797f7',
-        
-        // ssl: {
-        //   ca: fs.readFileSync(path.resolve(__dirname, './cleardb-ca.pem')),
-        //   cert: fs.readFileSync(path.resolve(__dirname, './b534aa53a06e29-cert.pem')),
-        //   key: fs.readFileSync(path.resolve(__dirname, './b534aa53a06e29-key.pem')),
-        // },
-        options: {
-          dialectOptions: {
-            supportBigNumbers: false,
-            bigNumberStrings: false,
-          },
-          ssl: false
+        dialectOptions: {
+          supportBigNumbers: true
         },
+        options: {
+          ssl: false
+        }
       },
     },
   };
