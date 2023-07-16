@@ -4,7 +4,7 @@ module.exports = ({ env }) => ({
   connection: {
     client: 'mysql',
     connection: {
-      host: env('DATABASE_HOST', 'q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	'),
+      host: env('DATABASE_HOST', 'q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'),
       port: env.int('DATABASE_PORT', 3306),
       database: env('DATABASE_NAME', 'mjn31od0so9xd9ub'),
       user: env('DATABASE_USERNAME', 'aeyzft5f0n3mhsez'),
