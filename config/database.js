@@ -1,4 +1,4 @@
-/*THE FOLLOWING IS FOR THE Upstash Redis database*/
+/*THE FOLLOWING IS FOR THE JAWSDB MARIA database*/
 
 module.exports = ({ env }) => ({
   connection: {
