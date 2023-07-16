@@ -12,12 +12,13 @@
   "dependencies": {
     "@strapi/plugin-i18n": "^4.11.0",
     "@strapi/plugin-users-permissions": "4.11.0",
-    "@strapi/strapi": "4.11.0",
-    "dotenv": "^16.1.4",
+    "@strapi/strapi": "^4.11.0",
+    "dotenv": "^16.3.1",
     "knex": "^2.4.2",
-    "mysql2": "^3.5.0",
+    "mysql": "^2.18.1",
     "sqlite3": "^5.1.6",
-    "strapi-plugin-netlify-deployments": "^2.0.0"
+    "strapi-plugin-netlify-deployments": "^2.0.0",
+    "tls": "^0.0.1"
   },
   "author": {
     "name": "A Strapi developer"

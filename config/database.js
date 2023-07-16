@@ -1,41 +1,25 @@
-/*THE FOLLOWING IS FOR THE CLEARDB DATABASE*/
+/*THE FOLLOWING IS FOR THE Upstash Redis database*/
 
-const path = require('path');
-// const fs = require('fs');
-
-module.exports = ({ env }) => {
-  const client = 'mysql2';
-
-  const connections = {
-    default: {
-      connector: 'bookshelf',
-      settings: {
-        client: 'mysql2',
-        host: 'us-cdbr-east-06.cleardb.net',
-        port: '3306',
-        database: 'heroku_0964b3720c902a8',
-        username: 'b534aa53a06e29',
-        password: '89b797f7',
-        // dialectOptions: {
-        //   supportBigNumbers: true
-        // },
-        options: {
-          ssl: false
-        }
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'mysql',
+    connection: {
+      host: env('DATABASE_HOST', 'q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	'),
+      port: env.int('DATABASE_PORT', 3306),
+      database: env('DATABASE_NAME', 'mjn31od0so9xd9ub'),
+      user: env('DATABASE_USERNAME', 'aeyzft5f0n3mhsez'),
+      password: env('DATABASE_PASSWORD', 'jwq0pfxer31us40l'),
+      ssl: {
+        rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false), // For self-signed certificates
       },
     },
-  };
+    debug: false,
+  },
+});
 
-  // console.log('Client:', client);
-  // console.log('Connection:', connections[client]);
 
-  return {
-    connection: {
-      client,
-      ...connections[client],
-    },
-  };
-};
+
+
 
 /*THE FOLLOWING IS FOR THE SQLITE DATABASE*/
 
