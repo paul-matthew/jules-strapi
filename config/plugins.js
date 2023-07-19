@@ -13,7 +13,20 @@ module.exports = ({ env }) => ({
       },
     },
     "users-permissions": {
-      jwtSecret: process.env.JWT_SECRET || "zLn5fU492Ui//7rCaYb9dg==",
-      // Other configurations...
+      jwtSecret: process.env.JWT_SECRET || "IvydeLAqYJCRgTkRs1PuOg==",
+    },
+    upload: {
+      config: {
+        provider: 'cloudinary',
+        providerOptions: {
+          cloud_name: env('CLOUDINARY_NAME',"dc5ohptw5"),
+          api_key: env('CLOUDINARY_KEY',"713193361936257"),
+          api_secret: env('CLOUDINARY_SECRET',"EEsrIAByWB5fed-A8iUe8IGi8Jg"),
+        },
+        actionOptions: {
+          upload: {},
+          delete: {},
+        },
+      },
     },
   });
