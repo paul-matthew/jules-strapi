@@ -17,7 +17,7 @@
     "dotenv": "^16.3.1",
     "knex": "^2.5.1",
     "mysql": "^2.18.1",
-    "sqlite3": "^5.1.6",
+    "sqlite3": "^5.1.7",
     "strapi-plugin-netlify-deployments": "^2.0.0",
     "tls": "^0.0.1"
   },
